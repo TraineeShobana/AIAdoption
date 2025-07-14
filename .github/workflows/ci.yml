@@ -34,7 +34,8 @@ jobs:
       - name: Generate Allure report
         if: always()
         run: |
-          docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results -v ${{ github.workspace }}/reports:/app/reports playwright-tests npx allure generate ./allure-results -o ./reports
+          docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results -v ${{ github.workspace }}/reports:/app/reports playwright-tests npx allure generate ./allure-results -o ./reports --clean
+
 
       - name: Upload Allure report artifact
         if: always()
